@@ -1,0 +1,382 @@
+{
+ "suspects": [
+  {
+   "id": "s1",
+   "name": "Crimson Cobra",
+   "hair": "red",
+   "feature": "tattoo",
+   "vehicle": "limousine",
+   "hobby": "opera",
+   "glyph": "🜃"
+  },
+  {
+   "id": "s2",
+   "name": "Shadow Wolf",
+   "hair": "black",
+   "feature": "glasses",
+   "vehicle": "motorcycle",
+   "hobby": "chess",
+   "glyph": "☾"
+  },
+  {
+   "id": "s3",
+   "name": "Golden Eagle",
+   "hair": "blonde",
+   "feature": "jewelry",
+   "vehicle": "private jet",
+   "hobby": "mountaineering",
+   "glyph": "✦"
+  },
+  {
+   "id": "s4",
+   "name": "Iron Phoenix",
+   "hair": "brown",
+   "feature": "scar",
+   "vehicle": "sports car",
+   "hobby": "tennis",
+   "glyph": "🜂"
+  },
+  {
+   "id": "s5",
+   "name": "Silver Fox",
+   "hair": "blonde",
+   "feature": "glasses",
+   "vehicle": "limousine",
+   "hobby": "chess",
+   "glyph": "✶"
+  },
+  {
+   "id": "s6",
+   "name": "Black Mamba",
+   "hair": "black",
+   "feature": "tattoo",
+   "vehicle": "private jet",
+   "hobby": "opera",
+   "glyph": "𓆙"
+  },
+  {
+   "id": "s7",
+   "name": "Emerald Knight",
+   "hair": "brown",
+   "feature": "jewelry",
+   "vehicle": "sports car",
+   "hobby": "mountaineering",
+   "glyph": "♞"
+  },
+  {
+   "id": "s8",
+   "name": "Scarlet Widow",
+   "hair": "red",
+   "feature": "scar",
+   "vehicle": "motorcycle",
+   "hobby": "tennis",
+   "glyph": "✚"
+  }
+ ],
+ "mastermind": {
+  "id": "nb",
+  "name": "LADY CINDER",
+  "hair": "black",
+  "feature": "scar",
+  "vehicle": "motorcycle",
+  "hobby": "opera",
+  "glyph": "☠",
+  "isMastermind": true
+ },
+ "traitPhrases": {
+  "hair": {
+   "red": "fiery red hair",
+   "blonde": "platinum blonde hair",
+   "brown": "chestnut brown hair",
+   "black": "jet black hair, slicked back"
+  },
+  "feature": {
+   "scar": "a long scar running down their cheek",
+   "tattoo": "a coiled serpent tattoo on their wrist",
+   "glasses": "thin wire-rimmed spectacles",
+   "jewelry": "a colossal diamond ring, hard to miss"
+  },
+  "vehicle": {
+   "limousine": "a black stretch limousine",
+   "motorcycle": "a chrome motorcycle",
+   "sports car": "a canary-yellow sports car",
+   "private jet": "a private jet, no flight plan filed"
+  },
+  "hobby": {
+   "opera": "an opera score from La Bohème",
+   "chess": "a worn pocketbook of chess openings",
+   "tennis": "a graphite tennis racket",
+   "mountaineering": "a coil of climbing rope and two ice axes"
+  }
+ },
+ "traitLabels": {
+  "hair": "Hair",
+  "feature": "Distinguishing Mark",
+  "vehicle": "Getaway Vehicle",
+  "hobby": "Known Hobby"
+ },
+ "traitValues": {
+  "hair": {
+   "red": "Red",
+   "blonde": "Blonde",
+   "brown": "Brown",
+   "black": "Black"
+  },
+  "feature": {
+   "scar": "Scar",
+   "tattoo": "Snake Tattoo",
+   "glasses": "Spectacles",
+   "jewelry": "Diamond Ring"
+  },
+  "vehicle": {
+   "limousine": "Limousine",
+   "motorcycle": "Motorcycle",
+   "sports car": "Sports Car",
+   "private jet": "Private Jet"
+  },
+  "hobby": {
+   "opera": "Opera",
+   "chess": "Chess",
+   "tennis": "Tennis",
+   "mountaineering": "Mountaineering"
+  }
+ },
+ "loot": [
+  {
+   "id": "crown",
+   "item": "The Crown Jewels",
+   "value": "£3 billion"
+  },
+  {
+   "id": "mona",
+   "item": "The Mona Lisa",
+   "value": "$900 million"
+  },
+  {
+   "id": "hope",
+   "item": "The Hope Diamond",
+   "value": "$350 million"
+  },
+  {
+   "id": "capstone",
+   "item": "A solid gold pyramid capstone",
+   "value": "$50 million"
+  },
+  {
+   "id": "cullinan",
+   "item": "The Star of Africa diamond",
+   "value": "$400 million"
+  },
+  {
+   "id": "strad",
+   "item": "A Stradivarius violin",
+   "value": "$15 million"
+  },
+  {
+   "id": "faberge",
+   "item": "A Fabergé Imperial Egg",
+   "value": "$33 million"
+  },
+  {
+   "id": "gutenberg",
+   "item": "A first-edition Gutenberg Bible",
+   "value": "$5 million"
+  },
+  {
+   "id": "falcon",
+   "item": "The Maltese Falcon (the real one)",
+   "value": "$8 million"
+  },
+  {
+   "id": "scepter",
+   "item": "Cleopatra's scepter",
+   "value": "priceless"
+  }
+ ],
+ "lootFacts": {
+  "crown": {
+   "type": "Royal regalia",
+   "home": "Tower of London, England",
+   "history": "The British Crown Jewels comprise over 100 objects, including five royal crowns, scepters, orbs, and rings, and over 23,000 individual gemstones. The collection has been guarded at the Tower of London since the 14th century. The most famous theft attempt was by Colonel Thomas Blood in 1671 — he was caught fleeing with the crown but pardoned by King Charles II, who reportedly admired his audacity.",
+   "fact": "The St. Edward's Crown, used at coronations, weighs 2.23 kg (4.9 lbs) — heavy enough that monarchs typically only wear it for the moment of crowning itself."
+  },
+  "mona": {
+   "type": "Renaissance portrait",
+   "home": "Musée du Louvre, Paris",
+   "history": "Painted by Leonardo da Vinci between approximately 1503 and 1519, the Mona Lisa is generally believed to depict Lisa Gherardini, the wife of a Florentine silk merchant. Leonardo carried it with him for the rest of his life and finished it in France. It was actually stolen in 1911 by an Italian handyman, Vincenzo Peruggia, who hid it in his Paris apartment for over two years before being caught trying to sell it in Florence.",
+   "fact": "The painting was relatively obscure outside art circles until the 1911 theft made it front-page news worldwide — that crime is largely why it became the most famous painting on Earth."
+  },
+  "hope": {
+   "type": "Blue diamond",
+   "home": "Smithsonian National Museum of Natural History, Washington D.C.",
+   "history": "A 45.52-carat deep-blue diamond, mined from the Kollur mine in southern India before 1666. King Louis XIV of France acquired and recut it. It was stolen during the French Revolution in 1792 and disappeared for two decades before resurfacing in London in 1812. Banker Henry Philip Hope bought it around 1839, giving it his name. Donated to the Smithsonian in 1958, where it now resides.",
+   "fact": "The Hope Diamond fluoresces an eerie red color under ultraviolet light — a property few other blue diamonds share."
+  },
+  "capstone": {
+   "type": "Ancient Egyptian pyramidion",
+   "home": "Various — many in museums, some still missing",
+   "history": "Pyramidions were the capstones that crowned Egyptian pyramids — typically made of polished granite or limestone, and sometimes sheathed in electrum (a gold-silver alloy) so they would catch the rising sun. The capstone of the Great Pyramid at Giza has been missing for thousands of years; some scholars think it may have been removed in antiquity. Other surviving capstones, like the Pyramidion of Amenemhat III, sit in museums in Cairo and elsewhere.",
+   "fact": "When intact, the Great Pyramid would have gleamed gold-white in the desert sun — the reflective limestone casing was systematically stripped over centuries to build Cairo."
+  },
+  "cullinan": {
+   "type": "Diamond",
+   "home": "Tower of London (set in royal regalia)",
+   "history": "The Cullinan Diamond, found in 1905 at the Premier Mine in South Africa, was the largest gem-quality diamond ever discovered at 3,106 carats (621.35 g). It was cut into nine major stones, the largest of which — Cullinan I, the 'Great Star of Africa' at 530.4 carats — is set in the British Sovereign's Sceptre. Cullinan II is set in the Imperial State Crown.",
+   "fact": "When the Cullinan was shipped from South Africa to England, the Royal Navy elaborately arranged a decoy shipment under heavy guard while the actual diamond traveled in an unmarked package by ordinary post."
+  },
+  "strad": {
+   "type": "Violin",
+   "home": "Various — owned by museums, foundations, and elite musicians",
+   "history": "Antonio Stradivari (c. 1644-1737) was a luthier in Cremona, Italy whose violins are still considered the finest stringed instruments ever made. About 650 of his violins survive. The reasons for their tonal quality are debated — theories range from the wood (grown during the 'Little Ice Age,' which produced denser growth rings) to the varnish to Stradivari's exact construction techniques, which were never written down.",
+   "fact": "A 1721 Stradivarius called the \"Lady Blunt\" sold at auction in 2011 for $15.9 million — the highest price ever paid for a violin."
+  },
+  "faberge": {
+   "type": "Imperial jeweled egg",
+   "home": "Various — Kremlin Armoury, the Forbes Collection, others",
+   "history": "Carl Fabergé's workshop made 50 jeweled eggs for the Russian imperial family between 1885 and 1917, beginning with a gift from Tsar Alexander III to his wife. Each egg contained a 'surprise' inside — miniature crowns, mechanical animals, portrait miniatures. After the 1917 Revolution, the eggs were scattered. Eight of the 50 are still missing, presumed destroyed or in private collections, though three previously-lost eggs have been rediscovered since 2000.",
+   "fact": "In 2014, a scrap-metal dealer in the American Midwest discovered he had bought a missing 1887 imperial Easter Egg for $14,000 — it was worth approximately $33 million."
+  },
+  "gutenberg": {
+   "type": "Printed book",
+   "home": "Various — about 49 known copies in libraries worldwide",
+   "history": "Johannes Gutenberg's Bible, printed in Mainz, Germany around 1454-1455, was the first major book produced with movable type in Europe — a technology that would transform civilization within a generation. Gutenberg printed approximately 180 copies; about 49 survive, of which 21 are complete. They are scattered across libraries in Europe, the United States, and Japan.",
+   "fact": "A complete copy last sold publicly in 1978 for $2.2 million; experts estimate one would now sell for $25-35 million if it ever came to market again."
+  },
+  "falcon": {
+   "type": "Statuette (fictional artifact, but tied to real history)",
+   "home": "Properties of the dramatic",
+   "history": "The 'Maltese Falcon' as you know it is a fictional MacGuffin from Dashiell Hammett's 1930 novel and the 1941 Humphrey Bogart film. In the story, it is a black statuette concealing a gold-and-jewel artifact supposedly given by the Knights Hospitaller of Malta to King Charles V of Spain in 1530 as tribute. The Knights of Malta did pay an annual tribute of one falcon to Spain — that part is real history. But no actual jeweled falcon is known to have existed.",
+   "fact": "The original lead prop falcon used in the 1941 film sold at auction in 2013 for $4.1 million, making it the most valuable movie prop ever sold at the time."
+  },
+  "scepter": {
+   "type": "Royal regalia (mostly lost to history)",
+   "home": "Unknown — most Ptolemaic regalia is lost",
+   "history": "Cleopatra VII Philopator (69-30 BCE) was the last active ruler of the Ptolemaic Kingdom of Egypt, the dynasty founded by one of Alexander the Great's generals. After her death by suicide following the loss to Octavian (later Augustus) at the Battle of Actium, much of the Ptolemaic royal treasury was looted by Rome. No scepter definitively belonging to Cleopatra is known to survive — most identifications are speculative.",
+   "fact": "Despite popular imagination, Cleopatra was not Egyptian by ethnicity — her family was of Macedonian Greek descent. She was, however, reportedly the only Ptolemaic monarch to actually learn the Egyptian language."
+  }
+ },
+ "dossiers": {
+  "s1": {
+   "alias": "THE PRIMA DONNA",
+   "origin": "Vienna, Austria",
+   "specialty": "Galleries, opera houses, anything with a private box",
+   "bio": "A former soprano who lost her voice to a knife in a Vienna alley and traded the stage for the shadows. The serpent on her wrist is rumored to be a betrothal mark from a Sicilian don she later buried herself. She still attends every opera in town the night of the heist — a perfect alibi, witnessed by hundreds.",
+   "tell": "Scarlet hair, a cobra inked at her wrist, and the long black limousine waiting at the stage door."
+  },
+  "s2": {
+   "alias": "THE GRANDMASTER",
+   "origin": "Reykjavik (claimed); birthplace unknown",
+   "specialty": "Long-game heists planned over months, sometimes years",
+   "bio": "A chess grandmaster who threw the 1987 European Championship for reasons the federation still won’t disclose. He thinks ten moves ahead and has never been photographed clearly — only the spectacles and the chrome bike survive in surveillance grain. Plans heists like middlegames; the police are pieces, never players.",
+   "tell": "Jet-black hair, wire-frame spectacles, and a chrome motorcycle parked three blocks from the scene."
+  },
+  "s3": {
+   "alias": "THE ALTITUDE",
+   "origin": "Geneva, Switzerland",
+   "specialty": "Mountain monasteries, summit caches, anything above the cloud line",
+   "bio": "Heiress to a Swiss watchmaking fortune turned high-altitude smuggler. She has summited eleven of the world’s fourteen 8,000-meter peaks; the other three were officially closed to climbers when she allegedly visited. Diamonds the size of marbles ride on her fingers — bait, distraction, and bargaining chip.",
+   "tell": "Platinum-blonde hair, ostentatious jewelry, and a private jet flying flight plans that don’t exist."
+  },
+  "s4": {
+   "alias": "THE SECOND SERVE",
+   "origin": "Melbourne, Australia",
+   "specialty": "Smash-and-grabs, never on foot, never twice in the same country",
+   "bio": "Former pro on the ATP tour, banned for life after an incident at Wimbledon that the All-England Club still refuses to discuss. The scar across her face is a parting gift from a doubles partner she swears she never saw again. Drives a yellow coupe like she’s still trying to outrun a serve.",
+   "tell": "Chestnut hair, a long facial scar, and a canary-yellow sports car."
+  },
+  "s5": {
+   "alias": "THE DIPLOMAT",
+   "origin": "Geneva, Switzerland",
+   "specialty": "Embassies, diplomatic pouches, anything in transit under seal",
+   "bio": "A retired diplomat who quit the Geneva conference circuit the day a colleague’s car bomb went off thirty seconds late. Plays chess by mail with seven inmates across four continents. Travels exclusively by limousine — bulletproof, lead-lined, with a chessboard built into the partition.",
+   "tell": "Platinum hair, thin spectacles, and a slow-moving black limousine."
+  },
+  "s6": {
+   "alias": "THE TENOR",
+   "origin": "Naples, Italy",
+   "specialty": "Cultural artifacts, religious relics, things stolen during arias",
+   "bio": "Italian operatic tenor turned arms broker, then turned thief — a career arc he calls ‘descending through the registers.’ The serpent tattoo on his wrist is rumored to hide an older one beneath. He hums Puccini while he works and has never been caught humming anything else.",
+   "tell": "Jet-black hair, a coiled snake tattoo, and an unmarked private jet on the tarmac."
+  },
+  "s7": {
+   "alias": "THE PEER",
+   "origin": "Yorkshire, England",
+   "specialty": "Country estates, royal collections, anything behind iron gates",
+   "bio": "Disgraced British peerage who lost his title in a card game and his fortune to a falsified expedition to K2. Now climbs anything with a vault at the top of it. Wears a single emerald ring and drives a sports car the color of fresh money.",
+   "tell": "Chestnut hair, conspicuous jewelry, and a bright sports car you can hear from two blocks away."
+  },
+  "s8": {
+   "alias": "THE THIRD WIDOW",
+   "origin": "Buenos Aires, Argentina",
+   "specialty": "Inheritances. Mostly other people’s.",
+   "bio": "Married three times, widowed three times — never charged. The scar across her face is from her second husband’s funeral, and she insists he gave it to her himself, which the coroner could neither confirm nor deny. Plays tennis at every country club she infiltrates.",
+   "tell": "Fiery red hair, a visible scar, and a motorcycle she rides without a helmet."
+  },
+  "nb": {
+   "alias": "THE MASTERMIND",
+   "origin": "Unknown. Files begin in 1991.",
+   "specialty": "Eight lieutenants. Twelve cities. Whatever she wants.",
+   "bio": "No agency holds a confirmed photograph from before 1991. Interpol’s file runs fourteen pages — twelve of them aliases. They say she ran the original eight as her own crew before promoting them to lieutenants and stepping into the shadows herself. The cigarette is the only thing constant in any sighting: Turkish, hand-rolled, ash always landing somewhere it shouldn’t.",
+   "tell": "Pinstripe suit, fedora low over the eyes, and a cigarette burning down to her fingers."
+  }
+ },
+ "mishaps": [
+  {
+   "hours": 2,
+   "headline": "NEAR MISS",
+   "text": "A henchman in a long coat brushed past you on the stairs and was gone before you turned around. The back exit was empty by the time you reached it. Two hours lost sweeping the wrong block."
+  },
+  {
+   "hours": 3,
+   "headline": "DECOY",
+   "text": "A waiter palmed your tip and slid you a folded note — \"she went east.\" It was a lie. Three hours wasted on a manufactured trail."
+  },
+  {
+   "hours": 2,
+   "headline": "FALSE LEAD",
+   "text": "A red coat across the plaza turned out to be a tourist in costume. By the time you realized, your real lead had slipped past. Two hours gone."
+  },
+  {
+   "hours": 3,
+   "headline": "WRONG CAR",
+   "text": "A black sedan ran a light just as you rounded the corner. You pursued. Wrong car. Wrong driver. Three hours."
+  },
+  {
+   "hours": 2,
+   "headline": "BAD TIP",
+   "text": "An anonymous phone call sent you to an empty warehouse across town. Lady Cinder has eyes everywhere. Two hours."
+  },
+  {
+   "hours": 2,
+   "headline": "CROSSED PATH",
+   "text": "Your suspect was here within the hour. You can smell the cigarette smoke. But they are gone, and you cost yourself two hours pretending otherwise."
+  }
+ ],
+ "ranks": [
+  {
+   "name": "Rookie",
+   "min": 0,
+   "desc": "Fresh out of training."
+  },
+  {
+   "name": "Sleuth",
+   "min": 2,
+   "desc": "You have a couple wins under your belt."
+  },
+  {
+   "name": "Private Eye",
+   "min": 5,
+   "desc": "They are starting to know your name."
+  },
+  {
+   "name": "Investigator",
+   "min": 10,
+   "desc": "A reputation precedes you."
+  },
+  {
+   "name": "Ace Detective",
+   "min": 20,
+   "desc": "Lady Cinder has your name on her wall."
+  }
+ ]
+}
