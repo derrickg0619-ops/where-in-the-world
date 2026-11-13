@@ -220,7 +220,7 @@ export function generateCase({ solved = 0, pace = "detective", caught = [], fina
     captureSpot: Math.floor(Math.random() * 3),
     start,
     // Deadline = the real flight time along the trail + slack per leg for searching, detours and sleep.
-    deadline: start + 10 + trailFlightHours(trail) + legs * paceCfg.hoursPerLeg,
+    deadline: snapTo5pm(start + 10 + trailFlightHours(trail) + legs * paceCfg.hoursPerLeg),
     pace: paceCfg,
     rankIndex: rank.index,
     isFinalCase: finalCase,
@@ -287,4 +287,11 @@ export function trailFlightHours(trail) {
   let h = 0;
   for (let i = 1; i < trail.length; i++) h += flightHours(trail[i - 1], trail[i]);
   return h;
+}
+
+/** Deadlines land at 5 PM (the nearest one), never in the middle of the night. */
+export function snapTo5pm(t) {
+  const day = Math.floor(t / 24);
+  const candidates = [day - 1, day, day + 1].map((d) => d * 24 + 17);
+  return candidates.reduce((best, c) => (Math.abs(c - t) < Math.abs(best - t) ? c : best));
 }

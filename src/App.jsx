@@ -13,6 +13,7 @@ import {
 } from "./game/engine.js";
 import { flightHours } from "./game/geo.js";
 import { loadProfile, saveProfile } from "./game/storage.js";
+import { buzz, HAPTIC } from "./game/haptics.js";
 import TravelMap from "./components/TravelMap.jsx";
 import { Title, Briefing, CityView, Ending, Atlas } from "./components/Screens.jsx";
 import { DossierModal, WitnessModal, MishapModal, SleepOverlay } from "./components/Modals.jsx";
@@ -72,6 +73,7 @@ export default function App() {
   function finish(result, finalRun) {
     const r = finalRun || run;
     const won = result === "win";
+    buzz(won ? HAPTIC.win : HAPTIC.lose);
     const before = rankFor(profile.solved);
     const solved = profile.solved + (won ? 1 : 0);
     const after = rankFor(solved);
@@ -136,6 +138,7 @@ export default function App() {
     if (res.kind === "near") r.evidence = { ...r.evidence, [res.trait]: res.value };
     if (res.kind === "clue" && res.clue.type === "location") r.notes = [...r.notes, { city: city.name, text: res.clue.text }];
 
+    buzz(res.kind === "deadend" ? HAPTIC.deadEnd : res.kind === "near" || res.clue?.type === "trait" ? HAPTIC.evidence : HAPTIC.clue);
     const q = [];
     if (slept) q.push({ type: "sleep", data: slept });
     q.push({ type: "witness", data: witness });
@@ -148,6 +151,7 @@ export default function App() {
   }
 
   function applyMishap(m) {
+    buzz(HAPTIC.mishap);
     const { next, slept } = spend(run, m.hours);
     if (!next) return;
     setRun(next);

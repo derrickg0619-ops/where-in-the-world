@@ -16,11 +16,12 @@ npm run dev
 npm run build
 ```
 
-This produces a single self-contained `dist/index.html` (all art inlined). Upload it to the
-`where-in-world-derrick` bucket as `index.html`, replacing the old one:
+This produces a self-contained `dist/index.html` (all art inlined) plus the home-screen app
+files (`manifest.webmanifest` and icons). Upload everything in `dist/` to the
+`where-in-world-derrick` bucket:
 
 ```bash
-aws s3 cp dist/index.html s3://where-in-world-derrick/index.html --content-type text/html --cache-control "no-cache"
+aws s3 sync dist/ s3://where-in-world-derrick/ --cache-control "no-cache"
 ```
 
 ## How it plays
@@ -34,6 +35,13 @@ aws s3 cp dist/index.html s3://where-in-world-derrick/index.html --content-type 
 - **Pace:** Rookie / Detective / Ace sets the deadline per leg and how often mishaps happen.
 - **Final case:** catch all eight lieutenants to unlock the chase for Lady Cinder herself.
 - Progress saves in the browser (localStorage).
+
+## On phones
+
+- The flight map zooms to your city and the four destinations; tap one to preview the route, then **Fly**.
+- Compact witness cards, 44px+ tap targets, room for the notch and home bar, and the latest lead on the city screen.
+- Vibration on clues, dead ends, mishaps and arrests (Android; iPhones don't allow it from the web).
+- "Add to Home Screen" installs it with its own icon and opens full-screen.
 
 ## Code map
 

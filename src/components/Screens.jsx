@@ -19,6 +19,7 @@ import {
 import { project } from "../game/geo.js";
 import { SCENE_IMG, SUSPECT_IMG, portraitFor } from "../assets/index.js";
 import Poster from "./Poster.jsx";
+import { isTouch } from "../game/haptics.js";
 import { Clock, SkyOverlay, Stamp } from "./Widgets.jsx";
 
 const AGENCY = "Meridian";
@@ -230,13 +231,13 @@ export function CityView({ kase, run, city, profile, isFinalCity, onInvestigate,
   const night = hour >= 20 || hour < 6;
 
   return (
-    <div className="min-h-screen bg-night text-parchment pb-28">
+    <div className="min-h-screen bg-night text-parchment" style={{ paddingBottom: "calc(96px + env(safe-area-inset-bottom))" }}>
       {/* top bar */}
-      <div className="sticky top-0 z-30 bg-night/95 backdrop-blur border-b border-brass/20">
+      <div className="sticky top-0 z-30 bg-night/95 backdrop-blur border-b border-brass/20 safe-top">
         <div className="max-w-4xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
           <Clock now={run.now} deadline={kase.deadline} compact />
-          <div className="text-right font-mono text-[10px] leading-tight">
-            <div className="text-brass">{kase.loot.item}</div>
+          <div className="text-right font-mono text-[10px] leading-tight min-w-0">
+            <div className="text-brass truncate">{kase.loot.item}</div>
             <div className="text-parchment/60">
               Evidence {evidenceCount}/4 ·{" "}
               {warrantFor ? <span className="text-stamp-bright">Warrant: {warrantFor.name}</span> : "No warrant"}
@@ -251,12 +252,12 @@ export function CityView({ kase, run, city, profile, isFinalCity, onInvestigate,
           <Poster city={city} className="w-full aspect-[800/351] block" />
           <SkyOverlay hour={hour} rain={night && city.id.length % 2 === 0} />
           <div className="absolute inset-0 bg-gradient-to-t from-night via-transparent to-transparent" />
-          <div className="absolute right-4 top-4">
+          <div className="absolute right-3 top-3 scale-75 sm:scale-100 origin-top-right">
             <Stamp city={city} index={run.route.length} />
           </div>
           <div className="absolute left-4 bottom-3 fade-up">
             <div className="label text-brass-light" style={{ fontSize: 9 }}>{city.country} · {city.continent}</div>
-            <h2 className="font-serif text-4xl sm:text-5xl font-bold drop-shadow-lg">{city.name}</h2>
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold drop-shadow-lg leading-none">{city.name}</h2>
           </div>
         </div>
 
@@ -269,19 +270,21 @@ export function CityView({ kase, run, city, profile, isFinalCity, onInvestigate,
         {/* spots */}
         <div className="px-4 mt-4">
           <div className="label text-brass mb-2">Question witnesses</div>
-          <div className="grid sm:grid-cols-3 gap-3">
+          <div className="grid sm:grid-cols-3 gap-2 sm:gap-3">
             {city.spots.map((s, i) => {
               const done = visited.includes(i);
               return (
                 <button
                   key={i}
                   onClick={() => onInvestigate(i)}
-                  className={`group text-left p-4 border transition relative overflow-hidden ${done ? "border-brass/20 bg-night-deep" : "border-brass/50 bg-night-mid hover:bg-night-light hover:border-brass-light"}`}
+                  className={`group text-left px-3 py-3 sm:p-4 min-h-[60px] flex sm:block items-center gap-3 border transition relative overflow-hidden ${done ? "border-brass/20 bg-night-deep" : "border-brass/50 bg-night-mid hover:bg-night-light hover:border-brass-light"}`}
                 >
-                  <div className="text-2xl opacity-80">{SPOT_ICONS[i]}</div>
-                  <div className="font-serif text-base mt-1 leading-snug">{s}</div>
-                  <div className={`font-mono text-[10px] mt-2 ${done ? "text-brass/50" : "text-brass-light"}`}>
-                    {done ? "✓ Questioned · reread" : `Investigate · ${investigateCost(visited.length)}h`}
+                  <div className="text-2xl opacity-80 w-8 text-center flex-shrink-0 sm:w-auto sm:text-left">{SPOT_ICONS[i]}</div>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-serif text-[15px] sm:text-base sm:mt-1 leading-snug pr-10 sm:pr-0">{s}</div>
+                    <div className={`font-mono text-[10px] mt-1 sm:mt-2 ${done ? "text-brass/50" : "text-brass-light"}`}>
+                      {done ? "✓ Questioned · tap to reread" : `Investigate · ${investigateCost(visited.length)}h`}
+                    </div>
                   </div>
                   {done && <span className="absolute top-2 right-2 font-mono text-[9px] text-stamp-bright border border-stamp-bright px-1 rotate-6">FILED</span>}
                 </button>
@@ -289,6 +292,19 @@ export function CityView({ kase, run, city, profile, isFinalCity, onInvestigate,
             })}
           </div>
         </div>
+
+        {/* latest lead, so phone players don't have to open the dossier to remember it */}
+        {run.notes.length > 0 && (
+          <div className="px-4 mt-4">
+            <div className="label text-brass mb-2">Latest lead</div>
+            <button onClick={onDossier} className="w-full text-left paper px-4 py-3 border-l-4 border-gold">
+              <div className="italic text-[15px] leading-snug">“{run.notes[run.notes.length - 1].text}”</div>
+              <div className="font-mono text-[10px] text-sepia mt-1">
+                {run.notes[run.notes.length - 1].city} · {run.notes.length > 1 ? `${run.notes.length - 1} more in your dossier ▸` : "tap for dossier ▸"}
+              </div>
+            </button>
+          </div>
+        )}
 
         {/* passport */}
         <div className="px-4 mt-6">
@@ -302,15 +318,18 @@ export function CityView({ kase, run, city, profile, isFinalCity, onInvestigate,
       </div>
 
       {/* action bar */}
-      <div className="fixed bottom-0 inset-x-0 z-30 bg-ink/95 border-t border-brass/30 backdrop-blur">
-        <div className="max-w-4xl mx-auto px-4 py-3 grid grid-cols-3 gap-2">
-          <button className="btn py-3 text-[10px]" onClick={onDossier}>
+      <div className="fixed bottom-0 inset-x-0 z-30 bg-ink/95 border-t border-brass/30 backdrop-blur safe-bottom">
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 py-2.5 grid grid-cols-3 gap-2">
+          <button className="btn min-h-[52px] text-[11px] relative" onClick={onDossier}>
             🗂 Dossier
+            <span className={`absolute -top-2 -right-1 font-mono text-[9px] px-1.5 py-0.5 rounded-full ${run.warrant ? "bg-stamp-bright text-parchment" : "bg-brass text-ink"}`}>
+              {run.warrant ? "✓" : `${evidenceCount}/4`}
+            </span>
           </button>
-          <button className="btn py-3 text-[10px]" onClick={onAtlas}>
+          <button className="btn min-h-[52px] text-[11px]" onClick={onAtlas}>
             🧭 Atlas
           </button>
-          <button className="btn btn-red py-3 text-[10px]" onClick={onTravel}>
+          <button className="btn btn-red min-h-[52px] text-[11px]" onClick={onTravel}>
             ✈ Travel
           </button>
         </div>
@@ -416,7 +435,9 @@ export function Atlas({ profile, onBack, overlay = false }) {
               placeholder="Search anything: rupees, Portuguese, volcano, red and white flag…"
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              autoFocus
+              autoFocus={!isTouch()}
+              type="search"
+              enterKeyHint="search"
             />
           </div>
         )}
