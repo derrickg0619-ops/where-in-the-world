@@ -250,7 +250,7 @@ export function CityView({ kase, run, city, profile, isFinalCity, onInvestigate,
   return (
     <div className={`min-h-screen text-parchment ${kase.isFinalCase ? "final-case" : "bg-night"}`} style={{ paddingBottom: "calc(96px + env(safe-area-inset-bottom))" }}>
       {/* top bar */}
-      <div className="sticky top-0 z-30 bg-night/95 backdrop-blur border-b border-brass/20 safe-top">
+      <div className="sticky sticky-safe z-30 bg-night/95 backdrop-blur border-b border-brass/20">
         <div className="max-w-4xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
           <Clock now={run.now} deadline={kase.deadline} compact />
           <div className="text-right font-mono text-[10px] leading-tight min-w-0">
@@ -444,8 +444,8 @@ export function Atlas({ profile, onBack, overlay = false }) {
   const c = sel ? CITY_BY_ID[sel] : null;
 
   return (
-    <div className={`${overlay ? "fixed inset-0 z-40 overflow-y-auto" : "min-h-screen"} bg-night text-parchment`}>
-      <div className="sticky top-0 z-10 bg-night/95 border-b border-brass/30 backdrop-blur">
+    <div className={`${overlay ? "fixed fixed-safe inset-x-0 bottom-0 z-40 overflow-y-auto" : "min-h-screen"} bg-night text-parchment`}>
+      <div className={`sticky ${overlay ? "top-0" : "sticky-safe"} z-10 bg-night/95 border-b border-brass/30 backdrop-blur`}>
         <div className="max-w-5xl mx-auto px-4 py-3 flex gap-3 items-center">
           <button className="btn px-3 py-2 text-[10px]" onClick={c ? () => setSel(null) : onBack}>◂ {c ? "All" : "Back"}</button>
           <div className="label text-brass-light flex-1">Field Atlas · {CITIES.length} cities</div>

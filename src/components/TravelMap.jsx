@@ -107,7 +107,7 @@ export default function TravelMap({ from, options, route, now, onFly, onCancel }
   const font = 14 * u;
 
   return (
-    <div className="min-h-screen bg-night text-parchment flex flex-col safe-top" style={{ paddingBottom: touch ? "calc(88px + env(safe-area-inset-bottom))" : 0 }}>
+    <div className="min-h-screen bg-night text-parchment flex flex-col" style={{ paddingBottom: touch ? "calc(88px + env(safe-area-inset-bottom))" : 0 }}>
       <div className="px-4 pt-3 pb-2 flex items-center justify-between max-w-5xl w-full mx-auto">
         <div>
           <div className="label text-brass">Departures · {from.name}</div>

@@ -88,3 +88,9 @@ button { -webkit-user-select: none; user-select: none; }
 .cinder-eyes { animation: eyes 7s ease-in-out infinite; }
 @keyframes eyes { 0%, 85%, 100% { opacity: 0; } 88%, 95% { opacity: .9; } }
 .final-case { --tw-bg-opacity: 1; background: linear-gradient(#1a0607, #0a0d14 40%); }
+
+/* ---- iPhone status bar (home-screen app runs edge-to-edge) ---- */
+body { padding-top: env(safe-area-inset-top); }
+.status-shield { position: fixed; top: 0; left: 0; right: 0; height: env(safe-area-inset-top); background: #0a0d14; z-index: 60; pointer-events: none; }
+.sticky-safe { top: env(safe-area-inset-top); }
+.fixed-safe { top: env(safe-area-inset-top); }

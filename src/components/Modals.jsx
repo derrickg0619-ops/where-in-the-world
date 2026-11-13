@@ -11,7 +11,7 @@ function Backdrop({ children, onClose, wide = false }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
   return (
-    <div className="fixed inset-0 z-40 bg-night/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-3 fade-in" onClick={onClose}>
+    <div className="fixed inset-0 z-40 bg-night/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-3 fade-in" style={{ paddingTop: "calc(env(safe-area-inset-top) + 12px)" }} onClick={onClose}>
       <div className={`w-full ${wide ? "max-w-3xl" : "max-w-lg"} max-h-[92vh] overflow-y-auto fade-up`} onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
