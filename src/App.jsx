@@ -165,6 +165,10 @@ export default function App() {
     if (!next) return;
     const reached = destId === kase.trail[run.reached + 1] && run.cityId === kase.trail[run.reached] ? run.reached + 1 : run.reached;
     setRun({ ...next, cityId: destId, cameFrom: run.cityId, route: [...run.route, destId], reached });
+    // Fetch the possible ending scenes as soon as the agent reaches the final city.
+    if (destId === kase.trail[kase.trail.length - 1] && !kase.villain.isMastermind) {
+      for (const k of ["arrest", "escape"]) new Image().src = `endings/${kase.villain.id}_${k}.jpg`;
+    }
     update({ visits: { ...profile.visits, [destId]: (profile.visits[destId] || 0) + 1 } });
     setQueue(slept ? [{ type: "sleep", data: { ...slept, taunt: rollTaunt(kase) } }] : []);
     setArrivalKey((k) => k + 1);

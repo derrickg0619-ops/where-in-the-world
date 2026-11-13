@@ -6,3 +6,7 @@ Replaced by `src/assets/scenes/cinder_portrait.jpg` and `cinder_arrest.jpg`.
 
 Also retired: `s1_arrest.jpg`, `s1_escape.jpg` and `s3_escape.jpg` (outfits/poses too adult for the
 audience). Regenerated in the same painted noir style with modest costumes.
+
+`suspects/`: the original suspect portraits and arrest/escape scenes, all replaced with new
+family-friendly paintings (each scene painted with that character's new portrait as a reference
+so she looks consistent). Every clue trait (hair, mark, vehicle, hobby) stays visible.

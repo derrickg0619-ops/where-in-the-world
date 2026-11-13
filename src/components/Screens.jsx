@@ -361,7 +361,7 @@ export function Ending({ kase, outcome, profile, onAgain }) {
   const v = kase.villain;
   const won = outcome.result === "win";
   const finalCity = CITY_BY_ID[outcome.run.cityId];
-  const img = v.isMastermind ? (won ? SCENE_IMG.cinder_arrest : SCENE_IMG.cinder_portrait) : SUSPECT_IMG[`${v.id}_${won ? "arrest" : "escape"}`];
+  const img = v.isMastermind ? (won ? SCENE_IMG.cinder_arrest : SCENE_IMG.cinder_portrait) : `endings/${v.id}_${won ? "arrest" : "escape"}.jpg`;
   const headline = {
     win: v.isMastermind ? "CINDER IN CHAINS" : `${v.name.toUpperCase()} NABBED`,
     wrong: "WRONG SUSPECT, WRONG WARRANT",
