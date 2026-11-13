@@ -260,64 +260,64 @@
    "alias": "THE PRIMA DONNA",
    "origin": "Vienna, Austria",
    "specialty": "Galleries, opera houses, anything with a private box",
-   "bio": "A former soprano who lost her voice to a knife in a Vienna alley and traded the stage for the shadows. The serpent on her wrist is rumored to be a betrothal mark from a Sicilian don she later buried herself. She still attends every opera in town the night of the heist — a perfect alibi, witnessed by hundreds.",
+   "bio": "A former soprano whose voice could shatter crystal — until one night it gave out mid-aria and never came back. She traded the stage for the shadows, but she still attends every opera in town on the night of a heist: a perfect alibi, witnessed by hundreds.",
    "tell": "Scarlet hair, a cobra inked at her wrist, and the long black limousine waiting at the stage door."
   },
   "s2": {
    "alias": "THE GRANDMASTER",
    "origin": "Reykjavik (claimed); birthplace unknown",
    "specialty": "Long-game heists planned over months, sometimes years",
-   "bio": "A chess grandmaster who threw the 1987 European Championship for reasons the federation still won’t disclose. He thinks ten moves ahead and has never been photographed clearly — only the spectacles and the chrome bike survive in surveillance grain. Plans heists like middlegames; the police are pieces, never players.",
+   "bio": "A chess prodigy who walked away from the 1987 European Championship in the middle of a winning game and never explained why. She thinks ten moves ahead and has never been photographed clearly — only the spectacles and the chrome motorcycle survive in grainy surveillance shots. To her, the police are chess pieces, never players.",
    "tell": "Jet-black hair, wire-frame spectacles, and a chrome motorcycle parked three blocks from the scene."
   },
   "s3": {
    "alias": "THE ALTITUDE",
    "origin": "Geneva, Switzerland",
    "specialty": "Mountain monasteries, summit caches, anything above the cloud line",
-   "bio": "Heiress to a Swiss watchmaking fortune turned high-altitude smuggler. She has summited eleven of the world’s fourteen 8,000-meter peaks; the other three were officially closed to climbers when she allegedly visited. Diamonds the size of marbles ride on her fingers — bait, distraction, and bargaining chip.",
+   "bio": "Heiress to a Swiss watchmaking fortune turned high-altitude smuggler. She has climbed eleven of the world's fourteen tallest peaks; the other three were officially closed when she allegedly visited. Diamonds the size of marbles ride on her fingers — bait, distraction and bargaining chip.",
    "tell": "Platinum-blonde hair, ostentatious jewelry, and a private jet flying flight plans that don’t exist."
   },
   "s4": {
    "alias": "THE SECOND SERVE",
    "origin": "Melbourne, Australia",
    "specialty": "Smash-and-grabs, never on foot, never twice in the same country",
-   "bio": "Former pro on the ATP tour, banned for life after an incident at Wimbledon that the All-England Club still refuses to discuss. The scar across her face is a parting gift from a doubles partner she swears she never saw again. Drives a yellow coupe like she’s still trying to outrun a serve.",
+   "bio": "A former tennis champion banned from the pro tour after an incident at Wimbledon that nobody will talk about. The scar on her face came from a wild doubles match she still claims she won. Drives a yellow coupe like she's still chasing down a drop shot.",
    "tell": "Chestnut hair, a long facial scar, and a canary-yellow sports car."
   },
   "s5": {
    "alias": "THE DIPLOMAT",
    "origin": "Geneva, Switzerland",
    "specialty": "Embassies, diplomatic pouches, anything in transit under seal",
-   "bio": "A retired diplomat who quit the Geneva conference circuit the day a colleague’s car bomb went off thirty seconds late. Plays chess by mail with seven inmates across four continents. Travels exclusively by limousine — bulletproof, lead-lined, with a chessboard built into the partition.",
+   "bio": "A retired diplomat who knows every embassy back door from Geneva to Jakarta. She plays chess by mail with opponents on four continents and travels only by limousine — armored, soundproof, with a chessboard built into the partition.",
    "tell": "Platinum hair, thin spectacles, and a slow-moving black limousine."
   },
   "s6": {
    "alias": "THE TENOR",
    "origin": "Naples, Italy",
    "specialty": "Cultural artifacts, religious relics, things stolen during arias",
-   "bio": "Italian operatic tenor turned arms broker, then turned thief — a career arc he calls ‘descending through the registers.’ The serpent tattoo on his wrist is rumored to hide an older one beneath. He hums Puccini while he works and has never been caught humming anything else.",
+   "bio": "An opera singer turned art thief who calls her career 'changing keys.' She hums Puccini while she works, never takes off the masquerade mask until she's airborne, and the serpent tattoo on her wrist is said to hide an older one underneath.",
    "tell": "Jet-black hair, a coiled snake tattoo, and an unmarked private jet on the tarmac."
   },
   "s7": {
    "alias": "THE PEER",
    "origin": "Yorkshire, England",
    "specialty": "Country estates, royal collections, anything behind iron gates",
-   "bio": "Disgraced British peerage who lost his title in a card game and his fortune to a falsified expedition to K2. Now climbs anything with a vault at the top of it. Wears a single emerald ring and drives a sports car the color of fresh money.",
+   "bio": "A British aristocrat who lost her family title in a card game and her fortune on a doomed expedition to K2. Now she climbs anything with a vault at the top of it. Wears a single emerald pendant and drives a sports car the color of fresh money.",
    "tell": "Chestnut hair, conspicuous jewelry, and a bright sports car you can hear from two blocks away."
   },
   "s8": {
-   "alias": "THE THIRD WIDOW",
+   "alias": "THE HEIRESS",
    "origin": "Buenos Aires, Argentina",
-   "specialty": "Inheritances. Mostly other people’s.",
-   "bio": "Married three times, widowed three times — never charged. The scar across her face is from her second husband’s funeral, and she insists he gave it to her himself, which the coroner could neither confirm nor deny. Plays tennis at every country club she infiltrates.",
-   "tell": "Fiery red hair, a visible scar, and a motorcycle she rides without a helmet."
+   "specialty": "Inheritances. Mostly other people's.",
+   "bio": "She has inherited three fortunes from three very rich, very forgetful great-aunts — and none of the families can explain how. The scar came from a motorcycle race across the Andes she insists she won. She plays tennis at every country club she sneaks into.",
+   "tell": "Fiery red hair, a visible scar, and a battered red motorcycle helmet she never leaves behind."
   },
   "nb": {
    "alias": "THE MASTERMIND",
    "origin": "Unknown. Files begin in 1991.",
    "specialty": "Eight lieutenants. Twelve cities. Whatever she wants.",
-   "bio": "No agency holds a confirmed photograph from before 1991. Interpol’s file runs fourteen pages — twelve of them aliases. They say she ran the original eight as her own crew before promoting them to lieutenants and stepping into the shadows herself. The cigarette is the only thing constant in any sighting: Turkish, hand-rolled, ash always landing somewhere it shouldn’t.",
-   "tell": "Pinstripe suit, fedora low over the eyes, and a cigarette burning down to her fingers."
+   "bio": "No agency holds a confirmed photograph of her face. Interpol's file runs fourteen pages — twelve of them aliases. She trained the eight lieutenants herself, then stepped back into the shadows to pull the strings. At every crime scene she leaves the same thing: a single calling card, scorched black at the edges, still warm.",
+   "tell": "A long dark coat, a fedora pulled low over the eyes, and a trail of glowing embers wherever she's been."
   }
  },
  "mishaps": [
@@ -349,7 +349,7 @@
   {
    "hours": 2,
    "headline": "CROSSED PATH",
-   "text": "Your suspect was here within the hour. You can smell the cigarette smoke. But they are gone, and you cost yourself two hours pretending otherwise."
+   "text": "Your suspect was here within the hour. You can still smell the smoke from her calling card. But they are gone, and you cost yourself two hours pretending otherwise."
   }
  ],
  "ranks": [

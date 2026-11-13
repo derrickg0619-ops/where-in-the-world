@@ -7,6 +7,7 @@ const byName = (map) =>
 
 export const SUSPECT_IMG = byName(suspectImgs); // s1, s1_arrest, s1_escape, ...
 export const CITY_IMG = byName(cityImgs); // cairo, tokyo, ... (only the original 12)
-export const SCENE_IMG = byName(sceneImgs); // title, fog, doorway, rooftop, wanted, map
+export const SCENE_IMG = byName(sceneImgs); // map, cinder_portrait, cinder_arrest
 
-export const portraitFor = (s) => (s.isMastermind ? SCENE_IMG.doorway : SUSPECT_IMG[s.id]);
+// Portraits are head-and-shoulders "dossier photo" crops (the game is family-friendly).
+export const portraitFor = (s) => (s.isMastermind ? SCENE_IMG.cinder_portrait : SUSPECT_IMG[`${s.id}_face`]);

@@ -7,6 +7,7 @@ import {
   investigateCost,
   rankFor,
   rollMishap,
+  rollTaunt,
   travelOptions,
   SUSPECTS,
   MASTERMIND,
@@ -140,7 +141,7 @@ export default function App() {
 
     buzz(res.kind === "deadend" ? HAPTIC.deadEnd : res.kind === "near" || res.clue?.type === "trait" ? HAPTIC.evidence : HAPTIC.clue);
     const q = [];
-    if (slept) q.push({ type: "sleep", data: slept });
+    if (slept) q.push({ type: "sleep", data: { ...slept, taunt: rollTaunt(kase) } });
     q.push({ type: "witness", data: witness });
     if (res.kind === "clue" && trailIndex < kase.trail.length - 1) {
       const m = rollMishap(kase);
@@ -155,7 +156,7 @@ export default function App() {
     const { next, slept } = spend(run, m.hours);
     if (!next) return;
     setRun(next);
-    if (slept) setQueue((q) => [{ type: "sleep", data: slept }, ...q]);
+    if (slept) setQueue((q) => [{ type: "sleep", data: { ...slept, taunt: rollTaunt(kase) } }, ...q]);
   }
 
   function doFly(destId) {
@@ -165,7 +166,7 @@ export default function App() {
     const reached = destId === kase.trail[run.reached + 1] && run.cityId === kase.trail[run.reached] ? run.reached + 1 : run.reached;
     setRun({ ...next, cityId: destId, cameFrom: run.cityId, route: [...run.route, destId], reached });
     update({ visits: { ...profile.visits, [destId]: (profile.visits[destId] || 0) + 1 } });
-    setQueue(slept ? [{ type: "sleep", data: slept }] : []);
+    setQueue(slept ? [{ type: "sleep", data: { ...slept, taunt: rollTaunt(kase) } }] : []);
     setArrivalKey((k) => k + 1);
     setScreen("city");
   }

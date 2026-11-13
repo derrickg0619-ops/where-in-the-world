@@ -65,3 +65,26 @@ button { -webkit-user-select: none; user-select: none; }
 .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 @media (hover: none) { .btn:hover:not(:disabled) { background: rgba(16,22,34,.85); border-color: rgba(176,141,87,.5); } .btn-red:hover:not(:disabled) { background: #a01f24; } }
 .btn:active:not(:disabled) { background: rgba(176,141,87,.25); }
+
+/* ---- animated effects (embers, smoke, lamps, posters) ---- */
+.ember { position: absolute; bottom: -10px; border-radius: 50%; opacity: 0; animation-name: ember-rise; animation-timing-function: linear; animation-iteration-count: infinite; }
+@keyframes ember-rise {
+  0% { transform: translate(0, 0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  60% { opacity: .8; }
+  100% { transform: translate(var(--drift, 30px), -110vh) scale(.3); opacity: 0; }
+}
+.smoke-bank { position: absolute; left: -50%; width: 200%; height: 45%; animation-name: smoke-roll; animation-timing-function: ease-in-out; animation-iteration-count: infinite; animation-direction: alternate; filter: blur(8px); }
+@keyframes smoke-roll { from { transform: translateX(-12%) scaleY(1); } to { transform: translateX(12%) scaleY(1.25); } }
+.lamp-flicker { animation: lamp-flicker 6s infinite; }
+@keyframes lamp-flicker { 0%, 18%, 22%, 60%, 64%, 100% { opacity: 1; } 20% { opacity: .35; } 62% { opacity: .6; } 63% { opacity: .2; } }
+.ken-burns { animation: ken-burns 24s ease-in-out infinite alternate; transform-origin: 60% 50%; }
+@keyframes ken-burns { from { transform: scale(1); } to { transform: scale(1.12) translate(-2%, -1%); } }
+.card-smolder { animation: smolder 3s ease-in-out infinite; }
+@keyframes smolder { 0%,100% { filter: drop-shadow(0 0 6px rgba(255,120,40,.35)); } 50% { filter: drop-shadow(0 0 14px rgba(255,120,40,.7)); } }
+.card-glow { animation: glow-pulse 1.8s ease-in-out infinite; }
+@keyframes glow-pulse { 0%,100% { opacity: .4; } 50% { opacity: 1; } }
+.underglow { box-shadow: 0 30px 60px -20px rgba(193,39,45,.7), inset 0 -60px 60px -30px rgba(255,90,30,.35); }
+.cinder-eyes { animation: eyes 7s ease-in-out infinite; }
+@keyframes eyes { 0%, 85%, 100% { opacity: 0; } 88%, 95% { opacity: .9; } }
+.final-case { --tw-bg-opacity: 1; background: linear-gradient(#1a0607, #0a0d14 40%); }

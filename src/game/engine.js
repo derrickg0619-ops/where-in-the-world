@@ -295,3 +295,17 @@ export function snapTo5pm(t) {
   const candidates = [day - 1, day, day + 1].map((d) => d * 24 + 17);
   return candidates.reduce((best, c) => (Math.abs(c - t) < Math.abs(best - t) ? c : best));
 }
+
+// Lady Cinder phones the agent's hotel in the night. Shown on some sleeps (more often in the final case).
+export const CINDER_TAUNTS = [
+  "Still chasing my people, Detective? Sleep well. They won't.",
+  "You're getting warmer. Careful — warm things burn.",
+  "I left a card for you at the front desk. You'll find it in ashes.",
+  "Every city you visit, I've already left. Every lead you follow, I wrote.",
+  "My lieutenants send their regards. Well — the ones you haven't caught yet.",
+  "Do you know what a cinder is, Detective? It's what's left after the fire.",
+];
+export function rollTaunt(kase) {
+  const odds = kase.isFinalCase ? 0.8 : 0.3;
+  return Math.random() < odds ? pick(CINDER_TAUNTS) : null;
+}

@@ -21,6 +21,7 @@ import { SCENE_IMG, SUSPECT_IMG, portraitFor } from "../assets/index.js";
 import Poster from "./Poster.jsx";
 import { isTouch } from "../game/haptics.js";
 import { Clock, SkyOverlay, Stamp } from "./Widgets.jsx";
+import { Embers, Smoke, LampGlow, CallingCard } from "./Effects.jsx";
 
 const AGENCY = "Meridian";
 
@@ -34,9 +35,15 @@ export function Title({ profile, onUpdate, onStart, onFinal, onAtlas }) {
 
   return (
     <div className="min-h-screen relative overflow-hidden text-parchment grain">
-      <img src={SCENE_IMG.title} alt="" className="absolute inset-0 w-full h-full object-cover object-right opacity-30" />
-      <div className="absolute inset-0 bg-gradient-to-r from-night via-night/90 to-night/40" />
-      <img src={SCENE_IMG.fog} alt="" className="absolute -bottom-10 left-0 w-[140%] max-w-none opacity-20 fog pointer-events-none" />
+      {/* Lady Cinder watches from the shadows */}
+      <div className="absolute inset-y-0 right-0 w-full sm:w-2/3 overflow-hidden">
+        <img src={SCENE_IMG.cinder_portrait} alt="" className="absolute inset-0 w-full h-full object-cover object-[50%_20%] opacity-40 ken-burns" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-night via-night/85 to-night/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#2a0806]/70 via-transparent to-transparent" />
+      <LampGlow className="w-[520px] h-[520px] -top-40 left-1/2 -translate-x-1/2" />
+      <Smoke opacity={0.12} />
+      <Embers count={22} />
 
       <div className="relative max-w-md mx-auto px-4 py-8 sm:py-12">
         <div className="text-center fade-up">
@@ -112,7 +119,7 @@ export function Title({ profile, onUpdate, onStart, onFinal, onAtlas }) {
               const got = profile.caught.includes(s.id);
               return (
                 <div key={s.id} className="relative" title={got ? `${s.name} — caught` : "At large"}>
-                  <img src={SUSPECT_IMG[s.id]} alt={got ? s.name : "Unknown"} className={`w-full aspect-square object-cover border ${got ? "border-brass" : "border-night-light grayscale brightness-[.25]"}`} />
+                  <img src={SUSPECT_IMG[`${s.id}_face`]} alt={got ? s.name : "Unknown"} className={`w-full aspect-square object-cover border ${got ? "border-brass" : "border-night-light grayscale brightness-[.25]"}`} />
                   {got && <span className="absolute inset-x-0 bottom-0 bg-stamp/90 text-[7px] font-mono text-center">CAUGHT</span>}
                 </div>
               );
@@ -169,8 +176,9 @@ export function Briefing({ kase, profile, onGo }) {
   const rank = rankFor(profile.solved);
   const final = kase.isFinalCase;
   return (
-    <div className="min-h-screen bg-night text-parchment px-4 py-8 grain relative">
-      <div className="max-w-2xl mx-auto">
+    <div className={`min-h-screen text-parchment px-4 py-8 grain relative overflow-hidden ${final ? "final-case" : "bg-night"}`}>
+      {final && <Embers count={30} />}
+      <div className="max-w-2xl mx-auto relative">
         <div className="label text-brass text-center">▸ From the desk of the Chief ◂</div>
         <p className="font-serif italic text-lg text-center mt-4 leading-relaxed fade-up">
           {final
@@ -204,6 +212,15 @@ export function Briefing({ kase, profile, onGo }) {
           </div>
         </div>
 
+        <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 fade-up" style={{ animationDelay: ".3s" }}>
+          <CallingCard className="w-56 flex-shrink-0" text={final ? "Catch me if you can." : "With compliments."} />
+          <p className="text-sm text-parchment/80 italic text-center sm:text-left">
+            {final
+              ? "Pinned to the chief's own door this morning — still smoking. She wants you to come."
+              : `Left at the scene in ${start.name}, still warm. Every crime from Lady Cinder's network carries her card.`}
+          </p>
+        </div>
+
         <button className="btn btn-red w-full mt-8 py-4 text-sm" onClick={onGo}>
           ✈ Depart for {start.name}
         </button>
@@ -231,7 +248,7 @@ export function CityView({ kase, run, city, profile, isFinalCity, onInvestigate,
   const night = hour >= 20 || hour < 6;
 
   return (
-    <div className="min-h-screen bg-night text-parchment" style={{ paddingBottom: "calc(96px + env(safe-area-inset-bottom))" }}>
+    <div className={`min-h-screen text-parchment ${kase.isFinalCase ? "final-case" : "bg-night"}`} style={{ paddingBottom: "calc(96px + env(safe-area-inset-bottom))" }}>
       {/* top bar */}
       <div className="sticky top-0 z-30 bg-night/95 backdrop-blur border-b border-brass/20 safe-top">
         <div className="max-w-4xl mx-auto px-4 py-2 flex items-center justify-between gap-3">
@@ -249,8 +266,9 @@ export function CityView({ kase, run, city, profile, isFinalCity, onInvestigate,
       {/* hero */}
       <div className="max-w-4xl mx-auto">
         <div className="relative overflow-hidden">
-          <Poster city={city} className="w-full aspect-[800/351] block" />
+          <Poster city={city} className="w-full aspect-[800/351] block ken-burns" />
           <SkyOverlay hour={hour} rain={night && city.id.length % 2 === 0} />
+          {(kase.isFinalCase || isFinalCity) && <Embers count={kase.isFinalCase ? 22 : 10} />}
           <div className="absolute inset-0 bg-gradient-to-t from-night via-transparent to-transparent" />
           <div className="absolute right-3 top-3 scale-75 sm:scale-100 origin-top-right">
             <Stamp city={city} index={run.route.length} />
@@ -343,10 +361,10 @@ export function Ending({ kase, outcome, profile, onAgain }) {
   const v = kase.villain;
   const won = outcome.result === "win";
   const finalCity = CITY_BY_ID[outcome.run.cityId];
-  const img = v.isMastermind ? (won ? SCENE_IMG.wanted : SCENE_IMG.rooftop) : SUSPECT_IMG[`${v.id}_${won ? "arrest" : "escape"}`];
+  const img = v.isMastermind ? (won ? SCENE_IMG.cinder_arrest : SCENE_IMG.cinder_portrait) : SUSPECT_IMG[`${v.id}_${won ? "arrest" : "escape"}`];
   const headline = {
     win: v.isMastermind ? "CINDER IN CHAINS" : `${v.name.toUpperCase()} NABBED`,
-    wrong: "WRONG MAN, WRONG WOMAN, WRONG WARRANT",
+    wrong: "WRONG SUSPECT, WRONG WARRANT",
     nowarrant: "CORNERED — BUT NO WARRANT",
     time: "TRAIL GOES COLD AT DEADLINE",
   }[outcome.result];
@@ -366,7 +384,11 @@ export function Ending({ kase, outcome, profile, onAgain }) {
           <h1 className="font-serif font-black text-3xl sm:text-4xl mt-2 leading-tight">{headline}</h1>
         </div>
         <div className="relative mt-5">
-          <img src={img} alt="" className={`w-full border-2 border-ink ${won ? "" : "grayscale-[.4]"}`} />
+          {/* wide, top-weighted crop keeps faces in frame (family-friendly framing) */}
+          <div className="relative overflow-hidden border-2 border-ink aspect-[16/8]">
+            <img src={img} alt="" className={`absolute inset-0 w-full h-full object-cover object-top ${won ? "" : "grayscale-[.4]"}`} />
+            {v.isMastermind && <Embers count={won ? 14 : 28} />}
+          </div>
           <div className={`absolute top-4 right-4 font-mono font-bold text-xl border-4 px-3 py-1 stamp-in ${won ? "border-forest text-forest bg-parchment/80" : "border-stamp-bright text-stamp-bright bg-parchment/80"}`} style={{ "--r": "-10deg" }}>
             {won ? "CASE CLOSED" : "ESCAPED"}
           </div>

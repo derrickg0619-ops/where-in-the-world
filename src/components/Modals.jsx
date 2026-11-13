@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { TRAITS, TRAIT_LABELS, TRAIT_VALUES, matchingSuspects, DOSSIERS, formatClock } from "../game/engine.js";
 import { portraitFor, SCENE_IMG } from "../assets/index.js";
 import { Typewriter } from "./Widgets.jsx";
+import { Smoke, Embers } from "./Effects.jsx";
 
 function Backdrop({ children, onClose, wide = false }) {
   useEffect(() => {
@@ -95,7 +96,8 @@ export function MishapModal({ m, onClose }) {
   return (
     <Backdrop onClose={onClose}>
       <div className="relative bg-ink border-2 border-stamp-bright p-6 shake overflow-hidden">
-        <img src={SCENE_IMG.fog} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+        <div className="absolute inset-0 rain opacity-40" />
+        <Smoke opacity={0.2} />
         <div className="relative">
           <div className="label text-stamp-bright pulse-red">⚠ {m.headline}</div>
           <p className="mt-3 text-parchment leading-relaxed">{m.text}</p>
@@ -125,6 +127,14 @@ export function SleepOverlay({ slept, city, onDone }) {
         <p className="font-serif text-xl mt-2 text-parchment">
           Even detectives sleep. You check into a cheap hotel in {city.name} and get {hours} hours of rest.
         </p>
+        {slept.taunt && (
+          <div className="mt-5 relative bg-ink/80 border border-stamp-bright/70 p-4 text-left overflow-hidden fade-up" style={{ animationDelay: ".6s" }}>
+            <Embers count={8} intensity={0.7} />
+            <div className="label text-stamp-bright pulse-red" style={{ fontSize: 9 }}>☎ In the dead of night · The hotel phone rings</div>
+            <p className="mt-2 font-serif italic text-parchment">A woman's voice, low and amused: “{slept.taunt}”</p>
+            <p className="mt-1 font-mono text-[10px] text-parchment/50">Click. The line goes dead.</p>
+          </div>
+        )}
         <p className="font-mono text-sm mt-3 text-parchment/80">You wake at {formatClock(slept.until)}.</p>
         <button className="btn mt-6 px-6 py-3 text-xs" onClick={onDone} autoFocus>
           Back on the case ▸
