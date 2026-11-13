@@ -1,6 +1,7 @@
-// City artwork. The 12 original cities use their painted posters; every other city gets
-// an art-deco travel poster drawn in SVG from its palette + landmark motif.
-import { CITY_IMG } from "../assets/index.js";
+// City artwork. Painted posters live as separate files (posters/<id>.jpg) that load only
+// when needed, keeping the game file small. If one is missing or fails to load (offline),
+// an art-deco poster is drawn in SVG from the city's palette + landmark motif instead.
+import { useState } from "react";
 
 const G = 300; // ground line in the 800x351 viewBox
 
@@ -289,8 +290,28 @@ export function DecoPoster({ city, className = "" }) {
   );
 }
 
+export const posterUrl = (id) => `posters/${id}.jpg`;
+
+/** Warm the browser cache for upcoming cities (e.g. the destinations on the departure board). */
+export function preloadPosters(ids) {
+  for (const id of ids) {
+    const img = new Image();
+    img.src = posterUrl(id);
+  }
+}
+
 export default function Poster({ city, className = "" }) {
-  const img = CITY_IMG[city.id];
-  if (img) return <img src={img} alt={city.name} className={`object-cover ${className}`} />;
-  return <DecoPoster city={city} className={className} />;
+  const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  if (failed) return <DecoPoster city={city} className={className} />;
+  return (
+    <img
+      src={posterUrl(city.id)}
+      alt={`${city.name} travel poster`}
+      className={`object-cover bg-night-mid transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"} ${className}`}
+      onLoad={() => setLoaded(true)}
+      onError={() => setFailed(true)}
+      decoding="async"
+    />
+  );
 }

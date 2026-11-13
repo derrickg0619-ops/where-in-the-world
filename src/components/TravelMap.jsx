@@ -3,6 +3,7 @@ import { project } from "../game/geo.js";
 import { SCENE_IMG } from "../assets/index.js";
 import { CITY_BY_ID, formatClock } from "../game/engine.js";
 import { buzz, isTouch } from "../game/haptics.js";
+import { preloadPosters } from "./Poster.jsx";
 
 const W = 1100;
 const H = 703;
@@ -58,6 +59,10 @@ export default function TravelMap({ from, options, route, now, onFly, onCancel }
   const touch = useMemo(isTouch, []);
 
   useEffect(() => () => cancelAnimationFrame(raf.current), []);
+  // Start fetching the destination posters while the player decides.
+  useEffect(() => {
+    preloadPosters(options.map((o) => o.id));
+  }, [options.map((o) => o.id).join()]);
   useLayoutEffect(() => {
     const el = wrap.current;
     if (!el) return undefined;
